@@ -1,0 +1,43 @@
+server:
+  port: 9090
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+        ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/contact_manager
+    username: postgres
+    password: 123
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 25
+    username: 104f9222721e0c
+    password: 3e2a4e964f0568
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+jwt:
+  access:
+    token:
+      expiry: 60000000
+      secret:
+        key: 357638792F423F4528482B4D6250655368566D597133743677397A24432646294A404E635266546A576E5A7234753778214125442A472D4B6150645367566B58
+  refresh:
+    token:
+      expiry: 864000000 # 10 days
+      secret:
+        key: 7134743777217A25432A462D4A614E645267556B58703272357538782F413F44
+rabbitmq:
+  queue:
+    name: contacts-manager-queue
+  exchange:
+    name: contacts-manager-exchange
+  routing:
+    key: contacts-manager-routing-key
