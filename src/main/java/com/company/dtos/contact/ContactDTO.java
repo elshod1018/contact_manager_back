@@ -1,7 +1,6 @@
 package com.company.dtos.contact;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
 
 public record ContactDTO(@NotNull String name,
                          @NotNull String photoUrl,

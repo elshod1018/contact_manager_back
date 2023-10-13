@@ -2,7 +2,6 @@ package com.company.controllers;
 
 import com.company.dtos.ResponseDTO;
 import com.company.entities.Group;
-import com.company.services.ContactService;
 import com.company.services.GroupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

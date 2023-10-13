@@ -2,19 +2,16 @@ package com.company.controllers;
 
 import com.company.dtos.MessageSendDTO;
 import com.company.dtos.ResponseDTO;
+import com.company.dtos.authuser.*;
 import com.company.entities.AuthUser;
 import com.company.entities.UserSMS;
-import com.company.dtos.authuser.*;
 import com.company.rabbitmq.producer.RabbitMQProducer;
 import com.company.services.AuthUserService;
 import com.company.services.UserSMSService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -27,7 +24,7 @@ public class AuthController {
     private final RabbitMQProducer rabbitMQProducer;
 
     @PostMapping("/user/register")
-    public ResponseEntity<ResponseDTO<AuthUser>> register(@Valid @RequestBody UserCreateDTO dto) throws JsonProcessingException {
+    public ResponseEntity<ResponseDTO<AuthUser>> register(@Valid @RequestBody UserCreateDTO dto) {
         AuthUser authUser = authUserService.create(dto);
         UserSMS smsCode = userSMSService.createSMSCode(authUser);
         rabbitMQProducer.sendMessage(new MessageSendDTO(authUser.getEmail(), smsCode.getCode()));

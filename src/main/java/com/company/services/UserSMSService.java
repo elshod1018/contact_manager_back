@@ -5,7 +5,6 @@ import com.company.entities.UserSMS;
 import com.company.repositories.UserSMSRepository;
 import com.company.utils.BaseUtils;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;

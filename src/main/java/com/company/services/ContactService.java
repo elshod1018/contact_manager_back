@@ -3,9 +3,7 @@ package com.company.services;
 import com.company.dtos.contact.ContactDTO;
 import com.company.entities.Contact;
 import com.company.repositories.ContactRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

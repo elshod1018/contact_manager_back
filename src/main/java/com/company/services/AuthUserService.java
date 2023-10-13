@@ -1,14 +1,13 @@
 package com.company.services;
 
 import com.company.config.security.JwtService;
+import com.company.dtos.authuser.*;
 import com.company.entities.AuthUser;
 import com.company.entities.UserSMS;
-import com.company.dtos.authuser.*;
 import com.company.enums.Role;
 import com.company.enums.Status;
 import com.company.enums.TokenType;
 import com.company.repositories.AuthUserRepository;
-import jdk.jfr.consumer.EventStream;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
