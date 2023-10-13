@@ -3,6 +3,5 @@ package com.company.dtos.authuser;
 import jakarta.validation.constraints.NotBlank;
 import org.springdoc.core.annotations.ParameterObject;
 
-@ParameterObject
-public record RefreshTokenRequest(@NotBlank String refreshToken) {
+public record RefreshTokenRequest(String refreshToken) {
 }

@@ -82,7 +82,8 @@ public class AuthUserService {
         return jwtService.generateAccessToken(username, tokenResponse);
     }
 
-    public boolean validateToken(String token) {
+    public boolean validateToken(TokenValidateDTO dto) {
+        String token = dto.token();
         return jwtService.isValidToken(token, TokenType.ACCESS) &&
                 findByEmail(jwtService.getUsername(token, TokenType.ACCESS)).getStatus().equals(Status.ACTIVE);
     }

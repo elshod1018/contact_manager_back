@@ -3,6 +3,7 @@ package com.company.config.security;
 import com.company.dtos.authuser.TokenResponse;
 import com.company.enums.TokenType;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

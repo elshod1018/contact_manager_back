@@ -1,5 +1,6 @@
 package com.company.controllers;
 
+import com.company.dtos.ResponseDTO;
 import com.company.entities.Group;
 import com.company.services.ContactService;
 import com.company.services.GroupService;
@@ -16,18 +17,19 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/groups")
-@PreAuthorize("isAuthenticated()")
 public class GroupController {
     private final GroupService groupService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Group>> getAll() {
-        return ResponseEntity.ok(groupService.findAll());
+    @PreAuthorize("hasAnyRole('USER')")
+    public ResponseEntity<ResponseDTO<List<Group>>> getAll() {
+        return ResponseEntity.ok(new ResponseDTO<>(groupService.findAll(), "Groups retrieved successfully"));
     }
 
     @GetMapping("/{id:.*}")
-    public ResponseEntity<Group> getById(@PathVariable(name = "id") Integer id) {
-        return ResponseEntity.ok(groupService.findById(id));
+    @PreAuthorize("hasAnyRole('USER')")
+    public ResponseEntity<ResponseDTO<Group>> getById(@PathVariable(name = "id") Integer id) {
+        return ResponseEntity.ok(new ResponseDTO<>(groupService.findById(id), "Group retrieved successfully"));
     }
 
 }

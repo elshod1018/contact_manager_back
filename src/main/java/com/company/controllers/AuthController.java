@@ -1,6 +1,7 @@
 package com.company.controllers;
 
 import com.company.dtos.MessageSendDTO;
+import com.company.dtos.ResponseDTO;
 import com.company.entities.AuthUser;
 import com.company.entities.UserSMS;
 import com.company.dtos.authuser.*;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -24,47 +26,43 @@ public class AuthController {
     private final UserSMSService userSMSService;
     private final RabbitMQProducer rabbitMQProducer;
 
-    @PreAuthorize("isAnonymous()")
     @PostMapping("/user/register")
-    public ResponseEntity<AuthUser> register(@Valid @RequestBody UserCreateDTO dto) throws JsonProcessingException {
+    public ResponseEntity<ResponseDTO<AuthUser>> register(@Valid @RequestBody UserCreateDTO dto) throws JsonProcessingException {
         AuthUser authUser = authUserService.create(dto);
         UserSMS smsCode = userSMSService.createSMSCode(authUser);
         rabbitMQProducer.sendMessage(new MessageSendDTO(authUser.getEmail(), smsCode.getCode()));
-        return ResponseEntity.ok(authUser);
+        return ResponseEntity.ok(new ResponseDTO<>(authUser));
     }
 
-//    @PreAuthorize("isAnonymous()")
-    @PostMapping("/token/   access")
-    public ResponseEntity<TokenResponse> generateToken(@RequestBody TokenRequest tokenRequest) {
+    @PostMapping("/token/access")
+    public ResponseEntity<ResponseDTO<TokenResponse>> generateToken(@RequestBody TokenRequest tokenRequest) {
+        log.info("Generate token request: {}", tokenRequest.email());
         TokenResponse tokenResponse = authUserService.generateToken(tokenRequest);
         tokenResponse.setRole(authUserService.findByEmail(tokenRequest.email()).getRole());
-        return ResponseEntity.ok(tokenResponse);
+        return ResponseEntity.ok(new ResponseDTO<>(tokenResponse));
     }
 
-    @PreAuthorize("isAnonymous()")
     @PostMapping("/token/refresh")
-    public ResponseEntity<TokenResponse> refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest) {
-        System.err.println(refreshTokenRequest.refreshToken());
+    public ResponseEntity<ResponseDTO<TokenResponse>> refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest) {
+        log.info("Refresh token request: {}", refreshTokenRequest.refreshToken());
         TokenResponse tokenResponse = authUserService.refreshAccessToken(refreshTokenRequest);
-        return ResponseEntity.ok(tokenResponse);
+        return ResponseEntity.ok(new ResponseDTO<>(tokenResponse));
     }
 
-
-    @GetMapping("/token/validate")
-    public Boolean validateToken(@RequestParam(name = "token") String token) {
+    @PostMapping("/token/validate")
+    public ResponseEntity<ResponseDTO<Boolean>> validateToken(@RequestBody TokenValidateDTO dto) {
         try {
-            return authUserService.validateToken(token);
+            return ResponseEntity.ok(new ResponseDTO<>(authUserService.validateToken(dto)));
         } catch (Exception e) {
             log.error("Error while validating token: {}", e.getMessage());
-            return false;
+            return ResponseEntity.ok(new ResponseDTO<>(false));
         }
     }
 
-    @PreAuthorize("isAnonymous()")
     @PutMapping("/user/activate")
-    public ResponseEntity<AuthUser> activateUser(@RequestBody UserActivationDTO dto) {
+    public ResponseEntity<ResponseDTO<AuthUser>> activateUser(@RequestBody UserActivationDTO dto) {
         AuthUser authUser = authUserService.activateUser(dto);
-        return ResponseEntity.ok(authUser);
+        return ResponseEntity.ok(new ResponseDTO<>(authUser));
     }
 }
 

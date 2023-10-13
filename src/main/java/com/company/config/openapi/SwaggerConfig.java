@@ -9,7 +9,6 @@ import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
-import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.NonNull;
@@ -18,24 +17,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
-
 @Configuration
 public class SwaggerConfig {
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(@NonNull CorsRegistry registry) {
-                registry
-                        .addMapping("/**")
-                        .allowedOrigins("http://localhost:8080",
-                                "http://localhost:9090")
-                        .allowedMethods("GET", "POST", "DELETE", "PUT")
-                        .allowCredentials(true);
-            }
-        };
-    }
-
     @Bean
     public OpenAPI springOpenApi() {
         return new OpenAPI()
@@ -55,7 +38,8 @@ public class SwaggerConfig {
                         .description("Spring Wikipedia Documentation")
                         .url("https://springshop.wiki.github.org/docs"))
                 .servers(List.of(
-                                new Server().url("http://localhost:9090").description("Development Server")
+                                new Server().url("http://localhost:9090").description("Development Server"),
+                                new Server().url("http://localhost:8080").description("Web Server")
                         )
                 )
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))

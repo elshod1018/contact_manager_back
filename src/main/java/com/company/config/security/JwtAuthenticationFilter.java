@@ -6,6 +6,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.annotations.Filter;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,6 +20,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Objects;
 
+@Slf4j
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
@@ -27,13 +30,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
                                     @NonNull FilterChain filterChain) throws ServletException, IOException {
-        final String authHeader = request.getHeader("Authorization");
-        if (Objects.isNull(authHeader) || !authHeader.startsWith("Bearer ")) {
+        String authHeader = request.getHeader("Authorization");
+        if (request.getRequestURI().startsWith("/api/v1/auth") || Objects.isNull(authHeader) || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
-        final String jwtToken = authHeader.substring(7);
-        final String email = jwtService.getUsername(jwtToken, TokenType.ACCESS);
+        String jwtToken = null;
+        String email = null;
+        try {
+            jwtToken = authHeader.substring(7);
+            email = jwtService.getUsername(jwtToken, TokenType.ACCESS);
+        } catch (Exception e) {
+            response.setStatus(401);
+        }
         if (!Objects.isNull(email)) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(email);
             if (jwtService.isValidToken(jwtToken, TokenType.ACCESS)) {
