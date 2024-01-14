@@ -22,8 +22,8 @@ target/
 ### LOGS ###
 /application_logs/
 /application_logs/**/*.log
-/application_logs/**/*
-/**/.log
+/application_logs/**/
+/**/*.log
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
