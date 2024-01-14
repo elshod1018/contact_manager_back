@@ -84,4 +84,14 @@ public class JwtService {
         byte[] bytes = Decoders.BASE64.decode(tokenType.equals(ACCESS) ? accessTokenSecretKey : refreshTokenSecretKey);
         return Keys.hmacShaKeyFor(bytes);
     }
+
+    public boolean isTokenValid(@NonNull String token, TokenType tokenType) {
+        try {
+            Date expiration = getExpiry(token, tokenType);
+            return expiration.after(new Date());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

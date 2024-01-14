@@ -16,34 +16,32 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/contacts")
+@PreAuthorize("hasAnyRole('USER')")
 public class ContactController {
     private final ContactService contactService;
 
-    @PostMapping("/create")
-    @PreAuthorize("hasAnyRole('USER')")
+    @PostMapping("")
     public ResponseEntity<ResponseDTO<Contact>> create(@RequestBody ContactDTO dto) {
         return ResponseEntity.ok(new ResponseDTO<>(contactService.create(dto), "Contact created successfully"));
     }
 
     @GetMapping("/all")
-    @PreAuthorize("hasAnyRole('USER')")
     public ResponseEntity<ResponseDTO<List<Contact>>> getAll() {
         log.info("Get all contacts");
         return ResponseEntity.ok(new ResponseDTO<>(contactService.findAll(), "Contacts retrieved successfully"));
     }
 
     @GetMapping("/{id:.*}")
-    @PreAuthorize("hasAnyRole('USER')")
     public ResponseEntity<ResponseDTO<Contact>> getById(@PathVariable(name = "id") Integer id) {
         return ResponseEntity.ok(new ResponseDTO<>(contactService.findById(id), "Contact retrieved successfully"));
     }
 
-    @PutMapping("/update/{id:.*}")
+    @PutMapping("/{id:.*}")
     public ResponseEntity<ResponseDTO<Contact>> update(@PathVariable Integer id, @RequestBody ContactDTO dto) {
         return ResponseEntity.ok(new ResponseDTO<>(contactService.update(id, dto), "Contact updated successfully"));
     }
 
-    @DeleteMapping("/delete/{id:.*}")
+    @DeleteMapping("/{id:.*}")
     public ResponseEntity<ResponseDTO<Boolean>> delete(@PathVariable Integer id) {
         contactService.delete(id);
         return ResponseEntity.ok(new ResponseDTO<>(true, "Contact deleted successfully"));
