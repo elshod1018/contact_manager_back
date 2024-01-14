@@ -20,6 +20,7 @@ target/
 *.ipr
 
 ### LOGS ###
+/application_logs/
 ./application_logs/**
 ./application_logs/**/*
 ./**/.log
