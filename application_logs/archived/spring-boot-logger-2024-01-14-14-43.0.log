@@ -1,5 +1,0 @@
-2024-01-14 14:43:02,140 INFO               org.apache.juli.logging.DirectJDKLog [http-nio-127.0.0.1-9090-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-01-14 14:43:02,145 INFO   org.springframework.web.servlet.FrameworkServlet [http-nio-127.0.0.1-9090-exec-1] Initializing Servlet 'dispatcherServlet'
-2024-01-14 14:43:02,149 INFO   org.springframework.web.servlet.FrameworkServlet [http-nio-127.0.0.1-9090-exec-1] Completed initialization in 3 ms
-2024-01-14 14:43:19,257 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-2] Get all contacts
-2024-01-14 14:43:19,298 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-3] Get all contacts

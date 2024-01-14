@@ -1,3 +1,0 @@
-2024-01-14 14:52:20,644 INFO               org.apache.juli.logging.DirectJDKLog [http-nio-127.0.0.1-9090-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-01-14 14:52:20,646 INFO   org.springframework.web.servlet.FrameworkServlet [http-nio-127.0.0.1-9090-exec-2] Initializing Servlet 'dispatcherServlet'
-2024-01-14 14:52:20,649 INFO   org.springframework.web.servlet.FrameworkServlet [http-nio-127.0.0.1-9090-exec-2] Completed initialization in 2 ms
