@@ -1,0 +1,4 @@
+2024-01-14 15:36:01,885 INFO             com.company.controllers.AuthController [http-nio-127.0.0.1-9090-exec-9] Generate token request: admin@gmail.com
+2024-01-14 15:36:55,030 INFO ompany.ex_handlers.handlers.GlobalExceptionHandler [http-nio-127.0.0.1-9090-exec-6] Error: /contacts/all,Access Denied,GET
+2024-01-14 15:36:57,234 INFO ompany.ex_handlers.handlers.GlobalExceptionHandler [http-nio-127.0.0.1-9090-exec-4] Error: /contacts/all,Access Denied,GET
+2024-01-14 15:36:57,253 INFO ompany.ex_handlers.handlers.GlobalExceptionHandler [http-nio-127.0.0.1-9090-exec-7] Error: /contacts/all,Access Denied,GET

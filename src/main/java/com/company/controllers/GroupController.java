@@ -16,17 +16,16 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/groups")
+@PreAuthorize("hasAnyRole('USER','ADMIN')")
 public class GroupController {
     private final GroupService groupService;
 
     @GetMapping("/all")
-    @PreAuthorize("hasAnyRole('USER')")
     public ResponseEntity<ResponseDTO<List<Group>>> getAll() {
         return ResponseEntity.ok(new ResponseDTO<>(groupService.findAll(), "Groups retrieved successfully"));
     }
 
     @GetMapping("/{id:.*}")
-    @PreAuthorize("hasAnyRole('USER')")
     public ResponseEntity<ResponseDTO<Group>> getById(@PathVariable(name = "id") Integer id) {
         return ResponseEntity.ok(new ResponseDTO<>(groupService.findById(id), "Group retrieved successfully"));
     }

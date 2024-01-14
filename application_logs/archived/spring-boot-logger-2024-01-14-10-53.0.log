@@ -1,0 +1,9 @@
+2024-01-14 10:53:52,133 INFO mqp.rabbit.listener.SimpleMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] Waiting for workers to finish.
+2024-01-14 10:53:52,612 INFO mqp.rabbit.listener.SimpleMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] Successfully waited for workers to finish.
+2024-01-14 10:53:52,656 INFO framework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-14 10:53:52,661 INFO                 com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-01-14 10:53:52,674 INFO                 com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-01-14 10:53:58,724 INFO         org.springframework.boot.StartupInfoLogger [main] Starting ContactManagerApplication using Java 17.0.9 with PID 16595 (/home/elshod/Documents/PROJECTS/JAVA/javacourse/Self-study/contact_manager/target/classes started by elshod in /home/elshod/Documents/PROJECTS/JAVA/javacourse/Self-study/contact_manager)
+2024-01-14 10:53:58,728 INFO         org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-01-14 10:53:59,591 INFO .repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-14 10:53:59,636 INFO .repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 38 ms. Found 4 JPA repository interfaces.

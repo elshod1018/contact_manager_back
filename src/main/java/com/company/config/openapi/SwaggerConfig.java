@@ -35,9 +35,7 @@ public class SwaggerConfig {
                         .description("Spring Wikipedia Documentation")
                         .url("https://springshop.wiki.github.org/docs"))
                 .servers(List.of(
-                                new Server().url("http://localhost:9090").description("Development Server"),
-                                new Server().url("http://localhost:3000").description("Web Server")
-                        )
+                        new Server().url("http://localhost:9090").description("Development Server"))
                 )
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
                 .components((new Components()

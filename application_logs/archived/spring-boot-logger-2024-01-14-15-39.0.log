@@ -1,0 +1,10 @@
+2024-01-14 15:39:20,066 INFO ompany.ex_handlers.handlers.GlobalExceptionHandler [http-nio-127.0.0.1-9090-exec-6] Error: /contacts/25,Contact not found with id '25',GET
+2024-01-14 15:39:20,090 INFO ompany.ex_handlers.handlers.GlobalExceptionHandler [http-nio-127.0.0.1-9090-exec-7] Error: /contacts/25,Contact not found with id '25',GET
+2024-01-14 15:39:23,372 INFO ompany.ex_handlers.handlers.GlobalExceptionHandler [http-nio-127.0.0.1-9090-exec-2] Error: /contacts/2,Contact not found with id '2',GET
+2024-01-14 15:39:23,396 INFO ompany.ex_handlers.handlers.GlobalExceptionHandler [http-nio-127.0.0.1-9090-exec-10] Error: /contacts/2,Contact not found with id '2',GET
+2024-01-14 15:39:32,188 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-3] Get all contacts
+2024-01-14 15:39:32,208 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-4] Get all contacts
+2024-01-14 15:39:36,536 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-2] Get all contacts
+2024-01-14 15:39:36,557 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-10] Get all contacts
+2024-01-14 15:39:41,361 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-2] Get all contacts
+2024-01-14 15:39:41,380 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-10] Get all contacts

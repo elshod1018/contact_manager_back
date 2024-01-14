@@ -1,0 +1,5 @@
+2024-01-14 15:42:43,572 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-7] Get all contacts
+2024-01-14 15:42:47,020 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-6] Get all contacts
+2024-01-14 15:42:47,043 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-5] Get all contacts
+2024-01-14 15:42:53,802 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-2] Get all contacts
+2024-01-14 15:42:53,821 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-10] Get all contacts

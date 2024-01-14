@@ -1,0 +1,36 @@
+2024-01-14 14:48:02,315 INFO      org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-01-14 14:48:02,368 INFO         org.springframework.boot.StartupInfoLogger [main] Starting ContactManagerApplication using Java 17.0.9 with PID 74439 (/home/elshod/Documents/PROJECTS/JAVA/javacourse/Self-study/contact_manager/target/classes started by elshod in /home/elshod/Documents/PROJECTS/JAVA/javacourse/Self-study/contact_manager)
+2024-01-14 14:48:02,369 INFO         org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-01-14 14:48:03,505 INFO .repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-14 14:48:03,586 INFO .repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 72 ms. Found 4 JPA repository interfaces.
+2024-01-14 14:48:04,417 INFO framework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 9090 (http)
+2024-01-14 14:48:04,428 INFO               org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-127.0.0.1-9090"]
+2024-01-14 14:48:04,432 INFO               org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-01-14 14:48:04,432 INFO               org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.12]
+2024-01-14 14:48:04,543 INFO               org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-01-14 14:48:04,544 INFO servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2099 ms
+2024-01-14 14:48:04,784 INFO          org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-14 14:48:04,846 INFO                              org.hibernate.Version [main] HHH000412: Hibernate ORM core version 6.2.7.Final
+2024-01-14 14:48:04,850 INFO                      org.hibernate.cfg.Environment [main] HHH000406: Using bytecode reflection optimizer
+2024-01-14 14:48:05,017 INFO ernate.bytecode.internal.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2024-01-14 14:48:05,174 INFO .orm.jpa.persistenceunit.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-14 14:48:05,194 INFO                 com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-01-14 14:48:05,550 INFO                  com.zaxxer.hikari.pool.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@28e48b65
+2024-01-14 14:48:05,552 INFO                 com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-01-14 14:48:05,895 INFO ernate.bytecode.internal.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2024-01-14 14:48:06,788 INFO saction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-14 14:48:06,867 INFO framework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-14 14:48:07,214 INFO ork.data.jpa.repository.query.QueryEnhancerFactory [main] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-01-14 14:48:08,399 WARN e.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-14 14:48:08,894 INFO gframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@22c5652b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59f0ef6e, org.springframework.security.web.context.SecurityContextHolderFilter@758e8b8d, org.springframework.security.web.header.HeaderWriterFilter@383b3357, org.springframework.web.filter.CorsFilter@67f25c, org.springframework.security.web.authentication.logout.LogoutFilter@29db9746, com.company.config.security.JwtAuthenticationFilter@47d7792e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29922188, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a5ed5f9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4eb2a0c2, org.springframework.security.web.session.SessionManagementFilter@56b4951a, org.springframework.security.web.access.ExceptionTranslationFilter@661ec798, org.springframework.security.web.access.intercept.AuthorizationFilter@1a0c384d]
+2024-01-14 14:48:09,388 WARN ork.core.LocalVariableTableParameterNameDiscoverer [main] Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.amqp.rabbit.core.RabbitAdmin
+2024-01-14 14:48:09,453 INFO               org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-127.0.0.1-9090"]
+2024-01-14 14:48:09,472 INFO framework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 9090 (http) with context path ''
+2024-01-14 14:48:09,479 INFO k.amqp.rabbit.connection.AbstractConnectionFactory [main] Attempting to connect to: [localhost:5672]
+2024-01-14 14:48:09,534 INFO k.amqp.rabbit.connection.AbstractConnectionFactory [main] Created new connection: rabbitConnectionFactory#75b5d09:0/SimpleConnection@23d030b1 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58282]
+2024-01-14 14:48:09,617 INFO         org.springframework.boot.StartupInfoLogger [main] Started ContactManagerApplication in 7.966 seconds (process running for 8.615)
+2024-01-14 14:48:53,647 INFO               org.apache.juli.logging.DirectJDKLog [http-nio-127.0.0.1-9090-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-14 14:48:53,648 INFO   org.springframework.web.servlet.FrameworkServlet [http-nio-127.0.0.1-9090-exec-2] Initializing Servlet 'dispatcherServlet'
+2024-01-14 14:48:53,653 INFO   org.springframework.web.servlet.FrameworkServlet [http-nio-127.0.0.1-9090-exec-2] Completed initialization in 4 ms
+2024-01-14 14:48:54,072 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-3] Get all contacts
+2024-01-14 14:48:54,178 INFO          com.company.controllers.ContactController [http-nio-127.0.0.1-9090-exec-4] Get all contacts

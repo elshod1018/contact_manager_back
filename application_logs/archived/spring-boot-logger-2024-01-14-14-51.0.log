@@ -1,0 +1,36 @@
+2024-01-14 14:51:40,332 INFO mqp.rabbit.listener.SimpleMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] Waiting for workers to finish.
+2024-01-14 14:51:40,665 INFO mqp.rabbit.listener.SimpleMessageListenerContainer [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] Successfully waited for workers to finish.
+2024-01-14 14:51:40,694 INFO framework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-14 14:51:40,698 INFO                 com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-01-14 14:51:40,710 INFO                 com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-01-14 14:51:47,906 INFO      org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 8.0.1.Final
+2024-01-14 14:51:47,966 INFO         org.springframework.boot.StartupInfoLogger [main] Starting ContactManagerApplication using Java 17.0.9 with PID 76586 (/home/elshod/Documents/PROJECTS/JAVA/javacourse/Self-study/contact_manager/target/classes started by elshod in /home/elshod/Documents/PROJECTS/JAVA/javacourse/Self-study/contact_manager)
+2024-01-14 14:51:47,968 INFO         org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2024-01-14 14:51:49,098 INFO .repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-14 14:51:49,186 INFO .repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 79 ms. Found 4 JPA repository interfaces.
+2024-01-14 14:51:50,012 INFO framework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 9090 (http)
+2024-01-14 14:51:50,024 INFO               org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-127.0.0.1-9090"]
+2024-01-14 14:51:50,027 INFO               org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2024-01-14 14:51:50,027 INFO               org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.12]
+2024-01-14 14:51:50,141 INFO               org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2024-01-14 14:51:50,142 INFO servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2079 ms
+2024-01-14 14:51:50,399 INFO          org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-14 14:51:50,459 INFO                              org.hibernate.Version [main] HHH000412: Hibernate ORM core version 6.2.7.Final
+2024-01-14 14:51:50,462 INFO                      org.hibernate.cfg.Environment [main] HHH000406: Using bytecode reflection optimizer
+2024-01-14 14:51:50,627 INFO ernate.bytecode.internal.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2024-01-14 14:51:50,785 INFO .orm.jpa.persistenceunit.SpringPersistenceUnitInfo [main] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-14 14:51:50,805 INFO                 com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2024-01-14 14:51:51,167 INFO                  com.zaxxer.hikari.pool.HikariPool [main] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@77ce8bc5
+2024-01-14 14:51:51,169 INFO                 com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2024-01-14 14:51:51,503 INFO ernate.bytecode.internal.BytecodeProviderInitiator [main] HHH000021: Bytecode provider name : bytebuddy
+2024-01-14 14:51:52,471 INFO saction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-14 14:51:52,552 INFO framework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-14 14:51:52,910 INFO ork.data.jpa.repository.query.QueryEnhancerFactory [main] Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-01-14 14:51:54,083 WARN e.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-14 14:51:54,590 INFO gframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@59f0ef6e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67f25c, org.springframework.security.web.context.SecurityContextHolderFilter@760dc63, org.springframework.security.web.header.HeaderWriterFilter@316a682b, org.springframework.web.filter.CorsFilter@47d7792e, org.springframework.security.web.authentication.logout.LogoutFilter@17cf5dcc, com.company.config.security.JwtAuthenticationFilter@4eb2a0c2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a5ed5f9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b8de9dc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10e7ade5, org.springframework.security.web.session.SessionManagementFilter@2d58136, org.springframework.security.web.access.ExceptionTranslationFilter@2c7fff1b, org.springframework.security.web.access.intercept.AuthorizationFilter@3e8cf854]
+2024-01-14 14:51:55,080 WARN ork.core.LocalVariableTableParameterNameDiscoverer [main] Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.amqp.rabbit.core.RabbitAdmin
+2024-01-14 14:51:55,134 INFO               org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-127.0.0.1-9090"]
+2024-01-14 14:51:55,153 INFO framework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 9090 (http) with context path ''
+2024-01-14 14:51:55,159 INFO k.amqp.rabbit.connection.AbstractConnectionFactory [main] Attempting to connect to: [localhost:5672]
+2024-01-14 14:51:55,213 INFO k.amqp.rabbit.connection.AbstractConnectionFactory [main] Created new connection: rabbitConnectionFactory#17eb5661:0/SimpleConnection@13653a0b [delegate=amqp://guest@127.0.0.1:5672/, localPort=41702]
+2024-01-14 14:51:55,297 INFO         org.springframework.boot.StartupInfoLogger [main] Started ContactManagerApplication in 8.1 seconds (process running for 8.854)

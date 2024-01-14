@@ -4,6 +4,7 @@ import com.company.dtos.ResponseDTO;
 import com.company.dtos.contact.ContactDTO;
 import com.company.entities.Contact;
 import com.company.services.ContactService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +17,12 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/contacts")
-@PreAuthorize("hasAnyRole('USER')")
+@PreAuthorize("hasAnyRole('USER','ADMIN')")
 public class ContactController {
     private final ContactService contactService;
 
     @PostMapping("")
-    public ResponseEntity<ResponseDTO<Contact>> create(@RequestBody ContactDTO dto) {
+    public ResponseEntity<ResponseDTO<Contact>> create(@Valid @RequestBody ContactDTO dto) {
         return ResponseEntity.ok(new ResponseDTO<>(contactService.create(dto), "Contact created successfully"));
     }
 
@@ -37,13 +38,13 @@ public class ContactController {
     }
 
     @PutMapping("/{id:.*}")
-    public ResponseEntity<ResponseDTO<Contact>> update(@PathVariable Integer id, @RequestBody ContactDTO dto) {
+    public ResponseEntity<ResponseDTO<Contact>> update(@PathVariable Integer id, @Valid @RequestBody ContactDTO dto) {
         return ResponseEntity.ok(new ResponseDTO<>(contactService.update(id, dto), "Contact updated successfully"));
     }
 
     @DeleteMapping("/{id:.*}")
-    public ResponseEntity<ResponseDTO<Boolean>> delete(@PathVariable Integer id) {
+    public ResponseEntity<ResponseDTO<Void>> delete(@PathVariable Integer id) {
         contactService.delete(id);
-        return ResponseEntity.ok(new ResponseDTO<>(true, "Contact deleted successfully"));
+        return ResponseEntity.ok(new ResponseDTO<>(null, "Contact deleted successfully"));
     }
 }

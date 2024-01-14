@@ -1,5 +1,6 @@
 package com.company.services;
 
+import com.company.config.security.SessionUser;
 import com.company.dtos.contact.ContactDTO;
 import com.company.entities.Contact;
 import com.company.repositories.ContactRepository;
@@ -13,9 +14,11 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class ContactService {
     private final ContactRepository contactRepository;
+    private final SessionUser sessionUser;
 
     public List<Contact> findAll() {
-        return contactRepository.findAll();
+        Integer id = sessionUser.id();
+        return contactRepository.findAll(id);
     }
 
     public Contact findById(Integer id) {
@@ -60,6 +63,10 @@ public class ContactService {
 
     public void delete(Integer id) {
         Contact contact = findById(id);
+        Integer userId = sessionUser.id();
+        if (!contact.getCreatedBy().equals(userId)) {
+            throw new RuntimeException("Contact not found with id '%s'".formatted(id));
+        }
         contact.setDeleted(true);
         contactRepository.save(contact);
     }
