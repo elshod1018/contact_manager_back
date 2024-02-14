@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Getter
@@ -13,7 +14,7 @@ public class AppErrorDTO implements Serializable {
     private final String errorMessage;
     private final Integer errorCode;
     private final Object errorBody;
-    private final LocalDateTime time;
+    private final Timestamp time;
 
 
     public AppErrorDTO(String errorPath, String errorMessage, Integer errorCode) {
@@ -25,7 +26,7 @@ public class AppErrorDTO implements Serializable {
         this.errorMessage = errorMessage;
         this.errorBody = errorBody;
         this.errorCode = errorCode;
-        this.time = LocalDateTime.now();
+        this.time = Timestamp.valueOf(LocalDateTime.now());
     }
 }
 

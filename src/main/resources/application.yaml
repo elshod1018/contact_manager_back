@@ -1,6 +1,5 @@
 server:
   port: 9090
-  address: 127.0.0.1
 spring:
   jpa:
     show-sql: true
@@ -27,7 +26,7 @@ spring:
 jwt:
   access:
     token:
-      expiry: 15000000000
+      expiry: 15000
       secret:
         key: 357638792F423F4528482B4D6250655368566D597133743677397A24432646294A404E635266546A576E5A7234753778214125442A472D4B6150645367566B58
   refresh:
@@ -35,10 +34,3 @@ jwt:
       expiry: 30000
       secret:
         key: 7134743777217A25432A462D4A614E645267556B58703272357538782F413F44
-rabbitmq:
-  queue:
-    name: contacts-manager-queue
-  exchange:
-    name: contacts-manager-exchange
-  routing:
-    key: contacts-manager-routing-key

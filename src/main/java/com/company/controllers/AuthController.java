@@ -1,12 +1,11 @@
 package com.company.controllers;
 
-import com.company.dtos.MessageSendDTO;
 import com.company.dtos.ResponseDTO;
 import com.company.dtos.authuser.*;
 import com.company.entities.AuthUser;
 import com.company.entities.UserSMS;
-import com.company.rabbitmq.producer.RabbitMQProducer;
 import com.company.services.AuthUserService;
+import com.company.services.MailService;
 import com.company.services.UserSMSService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,13 +20,13 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
     private final AuthUserService authUserService;
     private final UserSMSService userSMSService;
-    private final RabbitMQProducer rabbitMQProducer;
+    private final MailService mailService;
 
     @PostMapping("/user/register")
     public ResponseEntity<ResponseDTO<AuthUser>> register(@Valid @RequestBody UserCreateDTO dto) {
         AuthUser authUser = authUserService.create(dto);
         UserSMS smsCode = userSMSService.createSMSCode(authUser);
-        rabbitMQProducer.sendMessage(new MessageSendDTO(authUser.getEmail(), smsCode.getCode()));
+        mailService.sendEmail(authUser.getEmail(), smsCode.getCode());
         return ResponseEntity.ok(new ResponseDTO<>(authUser));
     }
 
