@@ -1,6 +1,7 @@
 package com.company.repositories;
 
 import com.company.entities.AuthUser;
+import lombok.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -12,5 +13,5 @@ public interface AuthUserRepository extends JpaRepository<AuthUser, Integer> {
 
 
     @Query("select a from AuthUser a where a.id = ?1")
-    Optional<AuthUser> findById(Integer id);
+    @NonNull Optional<AuthUser> findById(@NonNull Integer id);
 }

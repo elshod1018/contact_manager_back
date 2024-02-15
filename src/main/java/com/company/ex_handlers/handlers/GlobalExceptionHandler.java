@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public AppErrorDTO handleServletExceptions(ServletException e, HttpServletRequest request) {
         AppErrorDTO error = new AppErrorDTO(request.getRequestURI(), e.getMessage(), 401);
-        log.info("Error: {},{}", request.getRequestURI(), error.getErrorMessage());
+        log.error("ServletException Error: {},{}", request.getRequestURI(), error.getErrorMessage());
         return error;
     }
 
@@ -32,19 +32,21 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public AppErrorDTO handleDisabledException(DisabledException e, HttpServletRequest request) {
         AppErrorDTO error = new AppErrorDTO(request.getRequestURI(), e.getMessage(), 403);
-        log.info("Error: {},{}", request.getRequestURI(), error.getErrorMessage());
+        log.error("DisabledException Error: {},{}", request.getRequestURI(), error.getErrorMessage());
         return error;
     }
 
     @ExceptionHandler(CredentialsExpiredException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public AppErrorDTO handleCredentialsExpiredException(CredentialsExpiredException e, HttpServletRequest request) {
+        log.error("CredentialsExpiredException Error: {},{}", request.getRequestURI(), e.getMessage());
         return new AppErrorDTO(request.getRequestURI(), e.getMessage(), 400);
     }
 
     @ExceptionHandler(InsufficientAuthenticationException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public AppErrorDTO handleInsufficientAuthenticationException(InsufficientAuthenticationException e, HttpServletRequest request) {
+        log.error("InsufficientAuthenticationException Error: {},{}", request.getRequestURI(), e.getMessage());
         return new AppErrorDTO(request.getRequestURI(), e.getMessage(), 403);
     }
 
@@ -73,6 +75,7 @@ public class GlobalExceptionHandler {
             });
         }
         String errorPath = request.getRequestURI();
+        log.error("MethodArgumentNotValidException Error: {},{}", errorPath, e.getMessage());
         return new AppErrorDTO(errorPath, errorMessage, errorBody, 400);
     }
 
@@ -80,7 +83,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public AppErrorDTO handleUnknownExceptions(Exception e, HttpServletRequest request) {
         AppErrorDTO error = new AppErrorDTO(request.getRequestURI(), e.getMessage(), 500);
-        log.info("Error: {},{},{}", request.getRequestURI(), error.getErrorMessage(), request.getMethod());
+        log.error("Exception Error: {},{},{}", request.getRequestURI(), error.getErrorMessage(), request.getMethod());
         return error;
     }
 
@@ -88,7 +91,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public AppErrorDTO handleRuntimeExceptions(RuntimeException e, HttpServletRequest request) {
         AppErrorDTO error = new AppErrorDTO(request.getRequestURI(), e.getMessage(), 400);
-        log.info("Error: {},{},{}", request.getRequestURI(), error.getErrorMessage(), request.getMethod());
+        log.error("RuntimeException Error: {},{},{}", request.getRequestURI(), error.getErrorMessage(), request.getMethod());
         return error;
     }
 }

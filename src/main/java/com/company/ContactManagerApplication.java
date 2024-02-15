@@ -10,7 +10,6 @@ import com.company.repositories.AuthUserRepository;
 import com.company.repositories.GroupRepository;
 import com.company.services.AuthUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.deser.std.DateDeserializers;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
@@ -77,7 +76,6 @@ public class ContactManagerApplication {
                     .build()
             );
             System.out.println(authUserService.generateToken(new TokenRequest("admin@gmail.com", "admin")));
-
             List<Group> groupList = new ArrayList<>();
             groupList.add(Group.builder().name("Family").build());
             groupList.add(Group.builder().name("Friends").build());
