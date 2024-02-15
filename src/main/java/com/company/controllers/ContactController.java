@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/contacts")
-@PreAuthorize("hasAnyRole('USER','ADMIN')")
+@PreAuthorize("isAuthenticated()")
 public class ContactController {
     private final ContactService contactService;
 

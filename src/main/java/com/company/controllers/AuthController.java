@@ -26,7 +26,8 @@ public class AuthController {
     public ResponseEntity<ResponseDTO<AuthUser>> register(@Valid @RequestBody UserCreateDTO dto) {
         AuthUser authUser = authUserService.create(dto);
         UserSMS smsCode = userSMSService.createSMSCode(authUser);
-        mailService.sendEmail(authUser.getEmail(), smsCode.getCode());
+//        mailService.sendEmail(authUser.getEmail(), smsCode.getCode());
+        log.info("Sms created: {}", smsCode.getCode());
         return ResponseEntity.ok(new ResponseDTO<>(authUser));
     }
 
@@ -42,6 +43,7 @@ public class AuthController {
     public ResponseEntity<ResponseDTO<TokenResponse>> refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest) {
         log.info("Refresh token request: {}", refreshTokenRequest.refreshToken());
         TokenResponse tokenResponse = authUserService.refreshAccessToken(refreshTokenRequest);
+        log.info("Refresh token response: {}", tokenResponse.getAccessToken());
         return ResponseEntity.ok(new ResponseDTO<>(tokenResponse));
     }
 

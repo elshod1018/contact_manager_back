@@ -1,6 +1,5 @@
 package com.company.config.security;
 
-import com.company.enums.TokenType;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -40,7 +39,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String phoneNumber = jwtService.getUsername(JWToken, ACCESS);
 
         if (phoneNumber != null) {
-            UserDetails userDetails = (UserDetails) userDetailsService.loadUserByUsername(phoneNumber);
+            UserDetails userDetails =  userDetailsService.loadUserByUsername(phoneNumber);
             if (jwtService.isTokenValid(JWToken, ACCESS)) {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 WebAuthenticationDetails webAuthenticationDetails = new WebAuthenticationDetailsSource().buildDetails(request);
