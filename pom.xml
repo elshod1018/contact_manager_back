@@ -107,6 +107,7 @@
     </dependencies>
 
     <build>
+        <finalName>contact_manager</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
