@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>contact_manager</name>
     <description>contact_manager</description>
+    <packaging>war</packaging>
     <properties>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <maven.compiler.source>17</maven.compiler.source>
@@ -24,10 +25,10 @@
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-amqp</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-amqp</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
